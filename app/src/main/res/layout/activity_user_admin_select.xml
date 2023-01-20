@@ -56,15 +56,16 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/cash" />
+                    android:src="@drawable/shop" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="ADMIN"
+                    android:text="SHOP OWNER"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
+
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -89,7 +90,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/aware" />
+                    android:src="@drawable/user" />
 
                 <TextView
                     android:layout_width="wrap_content"

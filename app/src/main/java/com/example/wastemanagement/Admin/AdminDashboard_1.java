@@ -12,8 +12,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.wastemanagement.AwarenessMain;
 import com.example.wastemanagement.MapsActivity;
 import com.example.wastemanagement.R;
@@ -31,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdminDashboard_1 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -64,6 +68,12 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        CircleImageView profileImageView = headerView.findViewById(R.id.profile_image);
+        TextView profileName = (TextView) headerView.findViewById(R.id.profileIDname);
 
         TrashtoCash = (CardView) findViewById(R.id.trashToCash);
         TrashtoCash.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +118,13 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
                 AdminUsers users = snapshot.getValue(AdminUsers.class);
                 assert users != null;
                 name.setText("Welcome " + users.getFullname());
+                profileName.setText(users.getFullname());
+                profileName.setAllCaps(true);
+                if(users.getProfileImage().equals("default")){
+                    profileImageView.setImageResource(R.drawable.logo);
+                }else{
+                    Glide.with(getApplicationContext()).load(users.getProfileImage()).into(profileImageView);
+                }
 
             }
 
@@ -150,8 +167,17 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
                 startActivity(intent3);
                 finish();
                 break;
+            case R.id.nav_change_profile:
+                Intent intent4 = new Intent(AdminDashboard_1.this, AdminChangeProfile.class);
+                startActivity(intent4);
+                break;
         }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
+
     }
+
+
 }

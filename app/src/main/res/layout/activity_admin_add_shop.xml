@@ -132,7 +132,7 @@
                 android:layout_marginRight="50dp"
                 android:background="@drawable/input_background"
                 android:fontFamily="casual"
-                android:hint="Input Shop Descriptions"
+                android:hint="Input Items Accepted"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 

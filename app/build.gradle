@@ -52,6 +52,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+
 
 
     // permission library
@@ -67,6 +70,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
+
 
 
 }

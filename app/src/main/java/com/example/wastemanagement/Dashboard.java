@@ -12,10 +12,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.wastemanagement.Home.Users;
 import com.example.wastemanagement.Schedule.CalendarMain;
+import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Profile;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Rate;
 import com.example.wastemanagement.navigationMenuUI.Profile;
 import com.example.wastemanagement.trashToCash.ShopList;
@@ -30,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,6 +68,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,  R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        CircleImageView profileImageView = headerView.findViewById(R.id.profile_image);
+        TextView profileName = (TextView) headerView.findViewById(R.id.profileIDname);
 
 
         TrashtoCash = (CardView) findViewById(R.id.trashToCash);
@@ -108,6 +120,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Users users = snapshot.getValue(Users.class);
                 assert users != null;
                 name.setText("Welcome " + users.getUserName());
+                profileName.setText(users.getUserName());
+                profileName.setAllCaps(true);
+                if(users.getProfileImage().equals("default")){
+                    profileImageView.setImageResource(R.drawable.logo);
+                }else{
+                    Glide.with(getApplicationContext()).load(users.getProfileImage()).into(profileImageView);
+                }
 
             }
 
@@ -116,6 +135,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Toast.makeText(Dashboard.this,"Error, please report this bug!", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
@@ -135,6 +157,10 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intent = new Intent(Dashboard.this, Profile.class);
                 startActivity(intent);
                 break;
+            case R.id.nav_change_profile:
+                Intent intent4 = new Intent(Dashboard.this, Navigation_Change_Profile.class);
+                startActivity(intent4);
+                break;
             case R.id.nav_settings:
                 Intent intent1 = new Intent(Dashboard.this, MapsActivity.class);
                 startActivity(intent1);
@@ -151,7 +177,17 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
         }
-
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

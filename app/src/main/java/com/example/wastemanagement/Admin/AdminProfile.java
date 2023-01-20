@@ -11,10 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.wastemanagement.Dashboard;
-import com.example.wastemanagement.Home.Users;
 import com.example.wastemanagement.R;
-import com.example.wastemanagement.navigationMenuUI.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +28,7 @@ public class AdminProfile extends AppCompatActivity {
     private FirebaseAuth Auth;
     private DatabaseReference databaseReference;
 
-    private TextView name, email;
+    private TextView name, email, phoneNumber;
     private CircleImageView profileImage;
 
     private ImageButton back;
@@ -50,6 +47,7 @@ public class AdminProfile extends AppCompatActivity {
 
         name = (TextView) findViewById(R.id.AdminprofileName);
         email = (TextView) findViewById(R.id.AdminprofileEmailAddress);
+        phoneNumber = (TextView) findViewById(R.id.AdminprofilePhoneNumber);
 
         profileImage = (CircleImageView) findViewById(R.id.AdminprofileImage);
 
@@ -63,6 +61,7 @@ public class AdminProfile extends AppCompatActivity {
                 assert users != null;
                 name.setText(users.getFullname());
                 email.setText(User.getEmail());
+                phoneNumber.setText(User.getPhoneNumber());
 
                 if(users.getProfileImage().equals("default")){
                     profileImage.setImageResource(R.drawable.logo);
