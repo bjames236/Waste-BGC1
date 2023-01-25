@@ -8,8 +8,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.example.wastemanagement.Admin.AdminDashboard_1;
-import com.example.wastemanagement.Awareness.AwarenessFt;
+import com.example.wastemanagement.Awareness.NewsList;
 import com.example.wastemanagement.Recycle.RecylceMain;
 
 public class AwarenessMain extends AppCompatActivity {
@@ -26,16 +25,15 @@ public class AwarenessMain extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent (AwarenessMain.this, Dashboard.class);
                 startActivity(intent);
-                Intent intent1 = new Intent (AwarenessMain.this, AdminDashboard_1.class);
-                startActivity(intent1);
             }
         });
+
 
         blog = (CardView) findViewById(R.id.card1);
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AwarenessMain.this, AwarenessFt.class);
+                Intent intent = new Intent(AwarenessMain.this, NewsList.class);
                 startActivity(intent);
             }
         });

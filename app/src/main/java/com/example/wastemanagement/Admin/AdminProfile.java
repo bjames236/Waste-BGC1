@@ -60,8 +60,8 @@ public class AdminProfile extends AppCompatActivity {
                 AdminUsers users = snapshot.getValue(AdminUsers.class);
                 assert users != null;
                 name.setText(users.getFullname());
-                email.setText(User.getEmail());
-                phoneNumber.setText(User.getPhoneNumber());
+                email.setText(users.getEmail());
+                phoneNumber.setText(users.getPhoneNumber());
 
                 if(users.getProfileImage().equals("default")){
                     profileImage.setImageResource(R.drawable.logo);

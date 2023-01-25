@@ -16,10 +16,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
-import com.example.wastemanagement.AwarenessMain;
-import com.example.wastemanagement.MapsActivity;
+import com.example.wastemanagement.Awareness.AwarenessAdd;
 import com.example.wastemanagement.R;
-import com.example.wastemanagement.Schedule.CalendarMain;
 import com.example.wastemanagement.UserAdminSelect;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Rate;
 import com.google.android.material.navigation.NavigationView;
@@ -89,19 +87,11 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
         Awareness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminDashboard_1.this, AwarenessMain.class);
+                Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
                 startActivity(intent);
             }
         });
 
-        Schedule = (CardView) findViewById(R.id.dash_schedule);
-        Schedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminDashboard_1.this, CalendarMain.class);
-                startActivity(intent);
-            }
-        });
 
 
         navigationView.setNavigationItemSelectedListener(this);
@@ -152,8 +142,8 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
                 Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_settings:
-                Intent intent1 = new Intent(AdminDashboard_1.this, MapsActivity.class);
+            case R.id.nav_change_password:
+                Intent intent1 = new Intent(AdminDashboard_1.this, AwarenessAdd.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_rate_us:
@@ -177,6 +167,15 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 

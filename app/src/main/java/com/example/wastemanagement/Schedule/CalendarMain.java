@@ -28,13 +28,19 @@ public class CalendarMain extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent = new Intent (CalendarMain.this, Dashboard.class);
                 startActivity(intent);
-                Intent intent1 = new Intent (CalendarMain.this, AdminDashboard_1.class);
-                startActivity(intent1);
+
+            }
+        });
+        ImageButton arrowBack1 = (ImageButton) findViewById(R.id.arrowback_schedule);
+        arrowBack1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalendarMain.this, AdminDashboard_1.class);
+                startActivity(intent);
             }
         });
 
         customCalendarView = (CustomCalendarView) findViewById(R.id.custom_calendar_view);
     }
-
 
 }

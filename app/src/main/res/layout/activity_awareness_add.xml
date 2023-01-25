@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Awareness.AwarenessAdd">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:id="@+id/imageScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/awarenessCover"
+                android:layout_width="380dp"
+                android:layout_height="380dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/logo" />
+
+        </RelativeLayout>
+
+
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/houseImageRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>&ndash;&gt;
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/logo"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/logo"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/logo"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/logo"/>
+
+        </LinearLayout>-->
+
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/addAwarenessBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageScroll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Add Cover Image"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/addtitleAware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addAwarenessBTN"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_background"
+        android:fontFamily="casual"
+        android:hint="Input Title "
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/addHeaderAware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addtitleAware"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_background"
+        android:fontFamily="casual"
+        android:hint="Input Header"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/addDescriptionAware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addHeaderAware"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_background"
+        android:fontFamily="casual"
+        android:hint="Input Description"
+        android:padding="8dp"
+        android:textColor="@color/black" />
+        <Button
+            android:id="@+id/addPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addDescriptionAware"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Proceed"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

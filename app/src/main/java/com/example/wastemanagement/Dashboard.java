@@ -161,7 +161,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intent4 = new Intent(Dashboard.this, Navigation_Change_Profile.class);
                 startActivity(intent4);
                 break;
-            case R.id.nav_settings:
+            case R.id.nav_change_password:
                 Intent intent1 = new Intent(Dashboard.this, MapsActivity.class);
                 startActivity(intent1);
                 break;
@@ -176,6 +176,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent3);
                 finish();
                 break;
+
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
