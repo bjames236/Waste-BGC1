@@ -141,7 +141,7 @@ public class AdminViewShop extends AppCompatActivity {
                                             dialog.dismiss();
                                             android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(AdminViewShop.this);
                                             builder.setTitle("")
-                                                    .setMessage("Do you want to mark this listing as AVAILABLE again?")
+                                                    .setMessage("Do you want to mark this listing as OPEN again?")
                                                     .setCancelable(true)
                                                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                                         @Override

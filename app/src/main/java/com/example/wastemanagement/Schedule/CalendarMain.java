@@ -31,14 +31,7 @@ public class CalendarMain extends AppCompatActivity
 
             }
         });
-        ImageButton arrowBack1 = (ImageButton) findViewById(R.id.arrowback_schedule);
-        arrowBack1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CalendarMain.this, AdminDashboard_1.class);
-                startActivity(intent);
-            }
-        });
+
 
         customCalendarView = (CustomCalendarView) findViewById(R.id.custom_calendar_view);
     }
