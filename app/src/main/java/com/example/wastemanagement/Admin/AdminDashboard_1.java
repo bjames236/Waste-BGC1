@@ -139,7 +139,7 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
             case R.id.nav_home:
                 break;
             case R.id.nav_profile:
-                Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
+                Intent intent = new Intent(AdminDashboard_1.this, AdminManage.class);
                 startActivity(intent);
                 break;
             case R.id.nav_change_password:

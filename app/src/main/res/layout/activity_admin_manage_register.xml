@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Admin.AdminManageRegister">
+
+    <RelativeLayout
+        android:id="@+id/loginpanelcardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/loginuipanel"
+        >
+
+        <EditText
+            android:id="@+id/rgt_emailAddress"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="E-mail Address"
+            android:inputType="textPersonName"
+            android:drawableTint="@color/colorPrimary"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/rgt_password"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/rgt_emailAddress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_background"
+
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorPrimaryDark"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/rgt_confirmpassword"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/rgt_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="confirm password"
+            android:drawableTint="@color/colorPrimary"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/rgt_confirmpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Sign Up"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/rgt_logininsteadadmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registerButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Login Instead!"
+            android:textColor="#DD2C00"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

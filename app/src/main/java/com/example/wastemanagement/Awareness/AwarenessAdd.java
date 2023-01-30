@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ import java.util.HashMap;
 
 public class AwarenessAdd extends AppCompatActivity {
     private ImageView addHousePicture;
-    private Button addBTN;
+    private Button addBTN ;
     private TextView addImage;
     private EditText titleTXT, headerTXT, descriptionTXT, listersNameTXT, listersPhoneNumberTXT;
     private String title, header, description, listersName, listersPhoneNumber, saveCurrentDate, saveCurrentTime;
@@ -46,6 +47,7 @@ public class AwarenessAdd extends AppCompatActivity {
     private StorageReference awarenessiImageRef;
     private DatabaseReference databaseReference;
     private ProgressDialog loadingBar;
+    private ImageButton back;
 
     private FirebaseUser User;
     private FirebaseAuth Auth;
