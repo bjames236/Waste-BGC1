@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Awareness.AwarenessAdd">
 
-
-
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"

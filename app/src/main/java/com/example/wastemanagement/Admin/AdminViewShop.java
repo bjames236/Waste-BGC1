@@ -60,6 +60,7 @@ public class AdminViewShop extends AppCompatActivity {
         myList = (RecyclerView) findViewById(R.id.myListingsRecyclerView);
         myList.setLayoutManager(new LinearLayoutManager(AdminViewShop.this));
 
+
     }
 
     @Override
