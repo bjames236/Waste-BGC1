@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wastemanagement.Admin.AdminDashboard_1;
+import com.example.wastemanagement.Admin.AdminManage;
 import com.example.wastemanagement.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -167,7 +167,7 @@ public class AwarenessAdd extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Intent intent = new Intent(AwarenessAdd.this, AdminDashboard_1.class);
+                    Intent intent = new Intent(AwarenessAdd.this, AdminManage.class);
                     startActivity(intent);
                     finish();
                     loadingBar.dismiss();

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wastemanagement.R;
+import com.example.wastemanagement.UserAdminSelect;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,7 +41,7 @@ public class AdminManageLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_manage_login);
 
-        Toast.makeText(AdminManageLogin.this, "Log In as Admin", Toast.LENGTH_SHORT);
+        Toast.makeText(AdminManageLogin.this, "Log in as Admin", Toast.LENGTH_SHORT).show();
 
         createAccount = (TextView) findViewById(R.id.createAccountBTN);
         createAccount.setOnClickListener(new View.OnClickListener() {

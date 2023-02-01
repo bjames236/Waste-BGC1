@@ -53,19 +53,13 @@ public class MyGridAdapter extends ArrayAdapter {
             view = inflater.inflate(R.layout.single_cell_layout, parent, false);
         }
 
-        if(displayMonth == currentMonth && displayYear == currentYear){
+        if(DayNo == currentDay){
+            view.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+        }
+        else if(displayMonth == currentMonth && displayYear == currentYear){
             view.setBackgroundColor(getContext().getResources().getColor(R.color.green));
         }
-        else
-        {
-            view.setBackgroundColor(Color.parseColor("#cccccc"));
-        }
-        if(displayMonth == currentMonth && displayYear ==currentYear){
-            view.setBackgroundColor(getContext().getResources().getColor(R.color.green));
-        }
-        else if(DayNo == currentDay){
-            view.setBackgroundColor(getContext().getResources().getColor(R.color.black));
-        }
+
         else
         {
             view.setBackgroundColor(Color.parseColor("#cccccc"));

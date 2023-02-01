@@ -19,7 +19,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteManagement"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Admin.AdminChangePassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Admin.AdminManageLogin"
             android:exported="false">

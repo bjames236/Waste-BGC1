@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -41,7 +42,9 @@ public class UserAdminSelect extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 Intent intent = new Intent ( UserAdminSelect.this, AdminManageLogin.class);
                 startActivity(intent);
+
                 return false;
+
             }
         });
     }

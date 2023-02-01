@@ -16,7 +16,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
-import com.example.wastemanagement.Awareness.AwarenessAdd;
 import com.example.wastemanagement.R;
 import com.example.wastemanagement.UserAdminSelect;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Rate;
@@ -139,11 +138,11 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
             case R.id.nav_home:
                 break;
             case R.id.nav_profile:
-                Intent intent = new Intent(AdminDashboard_1.this, AdminManage.class);
+                Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
                 startActivity(intent);
                 break;
             case R.id.nav_change_password:
-                Intent intent1 = new Intent(AdminDashboard_1.this, AwarenessAdd.class);
+                Intent intent1 = new Intent(AdminDashboard_1.this, AdminChangePassword.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_rate_us:

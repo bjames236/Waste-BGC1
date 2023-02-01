@@ -81,7 +81,7 @@ public class AdminViewShop extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull AdminViewHolder houseViewHolder, int i, @NonNull AdminShop house) {
                         houseViewHolder.houseAddressLayout.setText(house.getHouseAddress());
-                        houseViewHolder.monthRentPriceLayout.setText("₱ " + house.getMonthlyRent());
+                        houseViewHolder.monthRentPriceLayout.setText(house.getMonthlyRent());
                         houseViewHolder.houseContactLayout.setText(house.getHouseContactNumber());
                         houseViewHolder.housePostedDateLayout.setText(house.getDate());
                         houseViewHolder.listersNameLayout.setText(house.getHouseOwner());
