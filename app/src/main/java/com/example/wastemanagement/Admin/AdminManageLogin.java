@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wastemanagement.R;
-import com.example.wastemanagement.UserAdminSelect;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -80,7 +79,7 @@ public class AdminManageLogin extends AppCompatActivity {
         String pass = passwordEditText.getText().toString();
 
         final DatabaseReference RootRef;
-        RootRef = FirebaseDatabase.getInstance().getReference().child("Admins");
+        RootRef = FirebaseDatabase.getInstance().getReference().child("Administrator");
 
         if (!email.matches(emailPattern)) {
             emailEditText.setError("Enter correct E-mail!");
