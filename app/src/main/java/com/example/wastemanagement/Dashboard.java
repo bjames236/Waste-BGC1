@@ -17,10 +17,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.wastemanagement.Home.Users;
+import com.example.wastemanagement.Notifications.NotificationMain;
 import com.example.wastemanagement.Schedule.CalendarMain;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Password;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Profile;
-import com.example.wastemanagement.navigationMenuUI.Navigation_Rate;
 import com.example.wastemanagement.navigationMenuUI.Profile;
 import com.example.wastemanagement.trashToCash.ShopList;
 import com.google.android.material.navigation.NavigationView;
@@ -166,10 +166,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intent1 = new Intent(Dashboard.this, Navigation_Change_Password.class);
                 startActivity(intent1);
                 break;
-            case R.id.nav_rate_us:
-                Intent intent2 = new Intent(Dashboard.this, Navigation_Rate.class);
-                startActivity(intent2);
-                break;
+
             case R.id.nav_log_out:
                 Intent intent3 = new Intent(Dashboard.this, UserAdminSelect.class);
                 intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

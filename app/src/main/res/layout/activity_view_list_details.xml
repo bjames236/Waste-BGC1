@@ -10,7 +10,7 @@
         android:id="@+id/app_bar_settingsAddProduct"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimaryDark">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_settingsSellersForgot"
@@ -237,22 +237,28 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/dateandtimeposted"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/notifyButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/messageButton"
-                android:textAlignment="center"
+                android:layout_below="@id/callButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="30dp"
+
+                android:background="@drawable/input_background"
                 android:fontFamily="casual"
-                android:text="Jan. 1, 2023 : 1:00 am"
+                android:text="Notify"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textStyle="bold" />
+
 
             <RelativeLayout
                 android:id="@+id/relative2"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_below="@id/dateandtimeposted"
+                android:layout_below="@id/notifyButton"
                 android:background="@color/colorPrimaryDark" />
 
         </RelativeLayout>

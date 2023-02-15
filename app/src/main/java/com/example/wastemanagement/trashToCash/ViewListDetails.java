@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wastemanagement.Admin.AdminShop;
+import com.example.wastemanagement.Notifications.NotificationMain;
 import com.example.wastemanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,7 +29,7 @@ public class ViewListDetails extends AppCompatActivity {
     private ImageView Picture;
     private String houseID = "";
     private String theuserID = "";
-    private Button messageBTN, callBTN;
+    private Button messageBTN, callBTN, notifyBTN;
 
     private TextView monthlyRentTXT, houseAddressTXT, houseDescriptionTXT, listersNameTXT, listersPhoneNumberTXT, postedTXT;
 
@@ -55,7 +56,6 @@ public class ViewListDetails extends AppCompatActivity {
         houseDescriptionTXT = (TextView) findViewById(R.id.DescriptionEditText);
         listersNameTXT = (TextView) findViewById(R.id.NameInfoEditText);
         listersPhoneNumberTXT = (TextView) findViewById(R.id.PhoneInfoEditText);
-        postedTXT = (TextView) findViewById(R.id.dateandtimeposted);
         Picture = (ImageView) findViewById(R.id.ImageViews);
 
         houseID = getIntent().getStringExtra("lid");
@@ -79,7 +79,6 @@ public class ViewListDetails extends AppCompatActivity {
                     houseDescriptionTXT.setText("Description: "+house.getHouseDetails());
                     listersNameTXT.setText(house.getHouseOwner());
                     listersPhoneNumberTXT.setText(house.getHouseContactNumber());
-                    postedTXT.setText("Date Listed: " + house.getDate() + " : " + house.getTime());
 
                     Picasso.get().load(house.getImage()).into(Picture);
 
@@ -106,6 +105,14 @@ public class ViewListDetails extends AppCompatActivity {
                         }
                     });
 
+                    notifyBTN = (Button) findViewById(R.id.notifyButton);
+                    notifyBTN.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(ViewListDetails.this, NotificationMain.class);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
 

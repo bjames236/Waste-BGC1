@@ -18,7 +18,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.bumptech.glide.Glide;
 import com.example.wastemanagement.R;
 import com.example.wastemanagement.UserAdminSelect;
-import com.example.wastemanagement.navigationMenuUI.Navigation_Rate;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -145,10 +144,7 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
                 Intent intent1 = new Intent(AdminDashboard_1.this, AdminChangePassword.class);
                 startActivity(intent1);
                 break;
-            case R.id.nav_rate_us:
-                Intent intent2 = new Intent(AdminDashboard_1.this, Navigation_Rate.class);
-                startActivity(intent2);
-                break;
+
             case R.id.nav_log_out:
                 Intent intent3 = new Intent(AdminDashboard_1.this, UserAdminSelect.class);
                 intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
