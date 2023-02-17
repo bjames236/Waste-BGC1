@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 
 public class NewUser extends AppCompatActivity {
 
-    private EditText userName, emailAdd, password;
+    private EditText userName, emailAdd, password, mobile;
     private Button registerBTN, loginInstead;
     private DatabaseReference databaseReference;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -56,6 +55,8 @@ public class NewUser extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.rgt_username);
         emailAdd = (EditText) findViewById(R.id.rgt_email);
         password = (EditText) findViewById(R.id.rgt_password1);
+        mobile = (EditText) findViewById(R.id.rgt_mobile);
+
 
         //Button
         registerBTN = (Button) findViewById(R.id.registerButton);
@@ -71,7 +72,7 @@ public class NewUser extends AppCompatActivity {
         String username = userName.getText().toString();
         String email = emailAdd.getText().toString();
         String pass = password.getText().toString();
-
+        String mobileNum = mobile.getText().toString();
         if(!email.matches(emailPattern)){
             emailAdd.setError("Enter valid E-mail!");
             Toast.makeText(this, "Please input correct E-Mail...", Toast.LENGTH_SHORT).show();
@@ -81,12 +82,16 @@ public class NewUser extends AppCompatActivity {
         }else if (username.isEmpty()){
             userName.setError("Enter username");
             Toast.makeText(this, "Please input your username...", Toast.LENGTH_SHORT).show();
-        }else{
-            register(email, pass, username);
+        }else if (mobileNum.isEmpty()) {
+            mobile.setError("Enter your 11 digit phone number");
+            Toast.makeText(this, "Please enter your phone number...", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            register(email, pass, username, mobileNum);
         }
     }
 
-    private void register(String email, String pass, String username) {
+    private void register(String email, String pass, String username, String mobileNum) {
         loadBar.setTitle("Creating Account");
         loadBar.setMessage("Please wait");
         loadBar.setCanceledOnTouchOutside(false);
@@ -106,6 +111,7 @@ public class NewUser extends AppCompatActivity {
                     hashMap.put("username", username);
                     hashMap.put("email", email);
                     hashMap.put("password", pass);
+                    hashMap.put("mobile", mobileNum);
                     hashMap.put("profileImage", "default");
                     hashMap.put("status", "offline");
 

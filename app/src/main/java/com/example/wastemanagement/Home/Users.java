@@ -2,7 +2,7 @@ package com.example.wastemanagement.Home;
 
 public class Users {
 
-    private String userId, email, password, profileImage, status, username;
+    private String userId, email, password, profileImage, status, username, mobile;
 
     public Users(){
 
@@ -14,6 +14,7 @@ public class Users {
         this.password = password;
         this.profileImage = profileImage;
         this.status = status;
+        this.mobile = mobile;
     }
     public String getUserId() {return userId;}
     public void setUserId(String userId) {this.userId = userId;}
@@ -57,4 +58,8 @@ public class Users {
     public void setFullname(String fullname) {
         this.username = username;
     }
+
+    public String getMobile(){return mobile;}
+
+    public void setMobile(String mobile){this.mobile = mobile;}
 }

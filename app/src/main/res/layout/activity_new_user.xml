@@ -26,7 +26,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:background="@drawable/input_background"
-            android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="E-mail Address"
@@ -56,13 +55,32 @@
             android:textSize="17sp"
             android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/rgt_mobile"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/rgt_password1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_background"
+
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorPrimaryDark"
+            android:ems="10"
+            android:hint="Enter mobile number"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
 
 
         <EditText
             android:id="@+id/rgt_username"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_below="@id/rgt_password1"
+            android:layout_below="@id/rgt_mobile"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/input_background"
