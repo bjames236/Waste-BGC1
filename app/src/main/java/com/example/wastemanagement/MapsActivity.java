@@ -2,6 +2,8 @@ package com.example.wastemanagement;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,12 +12,21 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.wastemanagement.databinding.ActivityMapsBinding;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -34,6 +45,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+
     }
 
     /**
@@ -62,18 +76,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
 
-        // Add a marker in Sydney and move the camera
-        LatLng caranto = new LatLng(16.409262, 120.587136);
-        mMap.addMarker(new MarkerOptions().position(caranto).title("Caranto Mini Junk Shop"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(caranto));
 
-        LatLng maglaya = new LatLng(16.376447, 120.626406);
-        mMap.addMarker(new MarkerOptions().position(maglaya).title("Maglaya junk shop"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(maglaya));
 
-        LatLng caniezo = new LatLng(16.409279, 120.587504);
-        mMap.addMarker(new MarkerOptions().position(caniezo).title("CANIEZO JUNKSHOP"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(caniezo));
+        // Get the user's current location
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null) {
+                    // Create a circle overlay with the user's location as the center and a radius of 1000 meters
+                    Circle circle = mMap.addCircle(new CircleOptions()
+                            .center(new LatLng(location.getLatitude(), location.getLongitude()))
+                            .radius(1000.0)
+                            .strokeWidth(2f)
+                            .strokeColor(Color.BLUE)
+                            .fillColor(Color.argb(70, 0, 0, 255)));
+
+                    // Get the list of markers to filter by location
+                     List<Marker> markers = new ArrayList<>();
+
+                    // Add markers to the list
+                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.409262, 120.587136)).title("Caranto")));
+                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.376447, 120.626406)).title("Maglaya")));
+                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.409279, 120.587504)).title("Caniezo")));
+                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.4099676, 120.6065965)).title("Example")));
+                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.4041575, 120.6048461)).title("Example2")));
+
+
+                    // Iterate through the list of markers and filter out markers that are outside the search radius
+                    for (Marker marker : markers) {
+                        Location markerLocation = new Location("");
+                        markerLocation.setLatitude(marker.getPosition().latitude);
+                        markerLocation.setLongitude(marker.getPosition().longitude);
+                        float distance = location.distanceTo(markerLocation);
+                        if (distance <= circle.getRadius()) {
+                            marker.setVisible(true);
+                        } else {
+                            marker.setVisible(false);
+                        }
+                    }
+                }
+            }
+        });
+
+
     }
 
     private void enableuserlocation() {
@@ -82,6 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
         mMap.setMyLocationEnabled(true);
+
     }
 
 
