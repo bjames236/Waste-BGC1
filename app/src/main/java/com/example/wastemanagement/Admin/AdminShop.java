@@ -2,7 +2,7 @@ package com.example.wastemanagement.Admin;
 
 public class  AdminShop {
 
-    public String status, lid, date, time, image, monthlyRent, houseAddress, houseDetails, houseLocation, houseContactNumber, houseOwner, userId, search;
+    public String status, lid, date, time, image, monthlyRent, houseAddress, houseDetails, houseLocation, houseContactNumber, houseOwner, userId, search, token;
 
     public AdminShop(){}
 
@@ -20,6 +20,7 @@ public class  AdminShop {
         this.houseOwner = houseOwner;
         this.userId = userId;
         this.search = search;
+        this.token = token;
     }
 
     public String getStatus() {
@@ -124,5 +125,13 @@ public class  AdminShop {
 
     public void setSearch(String search) {
         this.search = search;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

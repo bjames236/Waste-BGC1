@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     android:padding="20dp"
     tools:context=".AwarenessMain">
 
@@ -14,13 +15,13 @@
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:src="@drawable/ic_baseline_arrow_back_24"
-                    android:background="@color/white"
                     tools:ignore="SpeakableTextPresentCheck" />
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:src="@drawable/sign_arrows"
+
         />
 
     <LinearLayout

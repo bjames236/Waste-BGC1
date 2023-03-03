@@ -2,14 +2,14 @@ package com.example.wastemanagement.Admin;
 
 public class AdminUsers {
 
-    private String userId, email, password, phoneNumber, houseAddress, fullname, profileImage, status;
+    private String userId, email, password, phoneNumber, houseAddress, fullname, profileImage, status, token;
 
     public AdminUsers(){
 
     }
 
     public AdminUsers(String userId, String email, String password, String phoneNumber, String houseAddress,
-                 String fullname, String profileImage, String status) {
+                 String fullname, String profileImage, String status, String token) {
         this.userId = userId;
         this.email = email;
         this.password = password;
@@ -18,6 +18,7 @@ public class AdminUsers {
         this.fullname = fullname;
         this.profileImage = profileImage;
         this.status = status;
+        this.token = token;
     }
 
     public String getUserId() {
@@ -83,5 +84,11 @@ public class AdminUsers {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {this.token = token;}
 
 }
