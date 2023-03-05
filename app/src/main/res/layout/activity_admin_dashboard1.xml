@@ -9,7 +9,7 @@
     tools:context=".Admin.AdminDashboard_1"
     android:fitsSystemWindows="true"
     android:background="@drawable/gradient1"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -53,11 +53,11 @@
                         android:id="@+id/Admindashboard_ProfileName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:fontFamily="cursive"
                         android:paddingLeft="10dp"
                         android:text="Hello Guest"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="25sp" />
+                        android:textColor="@color/black"
+                        android:textSize="35sp" />
 
 
 
