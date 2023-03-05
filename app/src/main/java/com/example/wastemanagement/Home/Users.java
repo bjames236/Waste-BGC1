@@ -8,12 +8,13 @@ public class Users {
 
     }
 
-    public Users(String userId, String email, String password, String profileImage, String status){
+    public Users(String userId, String email, String password, String profileImage, String status, String username, String mobile){
         this.userId = userId;
         this.email = email;
         this.password = password;
         this.profileImage = profileImage;
         this.status = status;
+        this.username = username;
         this.mobile = mobile;
     }
     public String getUserId() {return userId;}
@@ -51,11 +52,9 @@ public class Users {
         this.status = status;
     }
 
-    public String getUserName() {
-        return username;
-    }
+    public String getUserName() {return username;}
 
-    public void setFullname(String fullname) {
+    public void setUserName(String username) {
         this.username = username;
     }
 

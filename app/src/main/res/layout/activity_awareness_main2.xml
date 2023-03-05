@@ -17,6 +17,7 @@
                     android:src="@drawable/ic_baseline_arrow_back_24"
                     tools:ignore="SpeakableTextPresentCheck" />
 
+
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"

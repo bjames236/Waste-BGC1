@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".Admin.AdminDashboard_1"
     android:fitsSystemWindows="true"
+    android:background="@drawable/gradient1"
     tools:openDrawer="start">
 
 

@@ -16,8 +16,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.wastemanagement.Call.CallActivity;
 import com.example.wastemanagement.Home.Users;
-import com.example.wastemanagement.Notifications.NotificationMain;
 import com.example.wastemanagement.Schedule.CalendarMain;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Password;
 import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Profile;
@@ -173,6 +173,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Auth.signOut();
                 startActivity(intent3);
                 finish();
+                break;
+            case R.id.nav_maps:
+                Intent intent2 = new Intent(Dashboard.this, MapsActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_call:
+                Intent intent5 = new Intent(Dashboard.this, CallActivity.class);
+                startActivity(intent5);
                 break;
 
         }

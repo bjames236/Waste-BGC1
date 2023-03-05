@@ -95,7 +95,6 @@ public class ViewListDetails extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
-
                     callBTN = (Button) findViewById(R.id.callButton);
                     callBTN.setOnClickListener(new View.OnClickListener() {
                         @Override

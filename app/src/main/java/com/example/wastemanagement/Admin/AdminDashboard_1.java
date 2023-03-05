@@ -16,6 +16,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.wastemanagement.Call.CallActivityShop;
+import com.example.wastemanagement.MapsActivity;
 import com.example.wastemanagement.R;
 import com.example.wastemanagement.UserAdminSelect;
 import com.google.android.material.navigation.NavigationView;
@@ -40,7 +42,7 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
 
     private TextView name;
 
-    private CardView TrashtoCash, Schedule, Awareness;
+    private CardView TrashtoCash, Call, Awareness;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -89,6 +91,8 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
             }
         });
+
+
 
 
 
@@ -155,6 +159,14 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
             case R.id.nav_change_profile:
                 Intent intent4 = new Intent(AdminDashboard_1.this, AdminChangeProfile.class);
                 startActivity(intent4);
+                break;
+            case R.id.nav_maps:
+                Intent intent2 = new Intent(AdminDashboard_1.this, MapsActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_call:
+                Intent intent5 = new Intent(AdminDashboard_1.this, CallActivityShop.class);
+                startActivity(intent5);
                 break;
         }
 

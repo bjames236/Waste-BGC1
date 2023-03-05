@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient1"
+
     tools:context=".trashToCash.ShopList">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_settings"

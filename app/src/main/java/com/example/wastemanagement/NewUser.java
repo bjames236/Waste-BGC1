@@ -120,7 +120,7 @@ public class NewUser extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 loadBar.dismiss();
-                                Intent intent = new Intent(NewUser.this,LoadingScreen.class);
+                                Intent intent = new Intent(NewUser.this, LoadingScreen.class);
                                 startActivity(intent);
                                 Toast.makeText(NewUser.this, "Account Created Successfull!", Toast.LENGTH_SHORT).show();
                                 finish();
