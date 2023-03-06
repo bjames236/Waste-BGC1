@@ -99,7 +99,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="Trash to Cash"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
                     </LinearLayout>
@@ -132,7 +132,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="Awareness "
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
                     </LinearLayout>
@@ -165,7 +165,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="Schedule"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:textSize="18sp" />
 
                     </LinearLayout>

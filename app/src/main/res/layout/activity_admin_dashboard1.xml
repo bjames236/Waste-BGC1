@@ -9,7 +9,7 @@
     tools:context=".Admin.AdminDashboard_1"
     android:fitsSystemWindows="true"
     android:background="@drawable/gradient1"
-    tools:openDrawer="">
+    tools:openDrawer="start">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -99,7 +99,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
                                 android:text="VIEW SHOP"
-                                android:textColor="@color/textColor"
+                                android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
                                 android:text="SHOP INFO"
-                                android:textColor="@color/textColor"
+                                android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
