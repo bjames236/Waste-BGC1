@@ -102,17 +102,6 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/createAccountBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/loginButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:text="Create New Account?"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 

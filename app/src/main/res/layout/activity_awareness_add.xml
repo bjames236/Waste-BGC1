@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Awareness.AwarenessAdd">
 
+
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -24,10 +26,18 @@
 
 
         <RelativeLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
 
+            <ImageButton
+                android:id="@+id/arrowback_myListing"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:background="@color/colorWhite"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
                 android:id="@+id/awarenessCover"
@@ -37,6 +47,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
+                android:layout_below="@+id/arrowback_myListing"
                 android:src="@drawable/logo" />
 
         </RelativeLayout>
@@ -120,8 +131,7 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/input_background"
         android:fontFamily="casual"
-        android:hint="Input Header"
-        android:inputType="text"
+        android:hint="Input Description"
         android:padding="8dp"
         android:textColor="@color/black" />
 
@@ -136,7 +146,7 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/input_background"
         android:fontFamily="casual"
-        android:hint="Input Description"
+        android:hint="Input Additional Description"
         android:padding="8dp"
         android:textColor="@color/black" />
         <Button

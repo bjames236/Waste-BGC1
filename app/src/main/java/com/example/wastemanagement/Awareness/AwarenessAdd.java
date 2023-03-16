@@ -60,6 +60,15 @@ public class AwarenessAdd extends AppCompatActivity {
         awarenessiImageRef = FirebaseStorage.getInstance().getReference().child("Cover Images");
 
 
+        ImageButton arrowBack = (ImageButton) findViewById(R.id.arrowback_myListing);
+        arrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AwarenessAdd.this, AdminManage.class);
+                startActivity(intent);
+            }
+        });
+
         addBTN = (Button) findViewById(R.id.addPost);
         addBTN.setOnClickListener(new View.OnClickListener() {
             @Override

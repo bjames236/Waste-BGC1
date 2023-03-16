@@ -73,11 +73,29 @@
             android:textSize="17sp"
             android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/rgt_fullname"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/rgt_confirmpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_background"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableTint="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/registerButton"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_below="@id/rgt_confirmpassword"
+            android:layout_below="@id/rgt_fullname"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="Sign Up"

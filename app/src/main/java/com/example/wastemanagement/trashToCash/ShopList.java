@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.example.wastemanagement.Admin.AdminShop;
 import com.example.wastemanagement.Admin.AdminViewHolder;
 import com.example.wastemanagement.Dashboard;
-import com.example.wastemanagement.MapsActivity;
 import com.example.wastemanagement.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -49,14 +48,6 @@ public class ShopList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent (ShopList.this, Dashboard.class);
-                startActivity(intent);
-            }
-        });
-        ImageButton maps = (ImageButton) findViewById(R.id.mapsButton);
-        maps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (ShopList.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

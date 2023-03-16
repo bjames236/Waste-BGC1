@@ -3,6 +3,7 @@ package com.example.wastemanagement.Admin;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 
 public class AdminManageRegister extends AppCompatActivity {
     private TextView loginInstead;
-    private EditText emailAdd, password, confirmPassword, phoneNumber, houseAddress,fullName;
+    private EditText emailAdd, password, confirmPassword, phoneNumber, houseAddress,name;
     private Button registerBtn;
     private DatabaseReference databaseReference;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -56,7 +57,7 @@ public class AdminManageRegister extends AppCompatActivity {
         emailAdd = (EditText) findViewById(R.id.rgt_emailAddress);
         password = (EditText) findViewById(R.id.rgt_password);
         confirmPassword = (EditText) findViewById(R.id.rgt_confirmpassword);
-
+        name = (EditText) findViewById(R.id.rgt_fullname);
 
         //Button
         registerBtn = (Button) findViewById(R.id.registerButton);
@@ -73,7 +74,7 @@ public class AdminManageRegister extends AppCompatActivity {
         String email = emailAdd.getText().toString();
         String pass = password.getText().toString();
         String confirmPass = confirmPassword.getText().toString();
-
+        String Name = name.getText().toString();
 
         if (!email.matches(emailPattern)) {
             emailAdd.setError("Enter correct E-mail!");
@@ -84,13 +85,16 @@ public class AdminManageRegister extends AppCompatActivity {
         } else if (! pass.equals(confirmPass)) {
             confirmPassword.setError("Password does not match!");
             Toast.makeText(this,"Password does not match...", Toast.LENGTH_SHORT).show();
-        }else {
-            register(email, pass);
+        }else if (TextUtils.isEmpty(Name)) {
+            name.setError("Enter your name");
+            Toast.makeText(this, "Please write your name...", Toast.LENGTH_SHORT).show();
+        }else{
+            register(email, pass, Name);
         }
 
     }
 
-    private void register(String email, String pass) {
+    private void register(String email, String pass, String Name) {
         loadBar.setTitle("Creating Account");
         loadBar.setMessage("Please wait, we are currently checking your credentials.");
         loadBar.setCanceledOnTouchOutside(false);
@@ -109,6 +113,7 @@ public class AdminManageRegister extends AppCompatActivity {
                     hashMap.put("userId", userId);
                     hashMap.put("email", email);
                     hashMap.put("password", pass);
+                    hashMap.put("name", Name);
 
 
                     databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -42,14 +42,6 @@ public class AdminManageLogin extends AppCompatActivity {
 
         Toast.makeText(AdminManageLogin.this, "Log in as Admin", Toast.LENGTH_SHORT).show();
 
-        createAccount = (TextView) findViewById(R.id.createAccountBTN);
-        createAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminManageLogin.this, AdminManageRegister.class);
-                startActivity(intent);
-            }
-        });
 
 
         //Initialize firebase

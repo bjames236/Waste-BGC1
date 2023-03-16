@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.wastemanagement.Awareness.AwarenessAdd;
 import com.example.wastemanagement.R;
+import com.example.wastemanagement.UserAdminSelect;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +34,7 @@ public class AdminManage extends AppCompatActivity {
     private TextView soldItems;
     private RecyclerView myList;
 
+    private TextView logout;
     private FirebaseUser User;
     private FirebaseAuth Auth;
     private DatabaseReference databaseReference;
@@ -50,6 +52,31 @@ public class AdminManage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminManage.this, AwarenessAdd.class);
                 startActivity(intent);
+            }
+        });
+        TextView logout = (TextView) findViewById(R.id.adminLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(AdminManage.this);
+                builder.setTitle("")
+                        .setMessage("Are you sure you want to LOG OUT? ")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent3 = new Intent(AdminManage.this, UserAdminSelect.class);
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Auth.signOut();
+                                startActivity(intent3);
+                                finish();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).show();
             }
         });
 

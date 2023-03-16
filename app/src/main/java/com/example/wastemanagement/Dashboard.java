@@ -1,5 +1,6 @@
 package com.example.wastemanagement;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -169,10 +170,25 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_log_out:
                 Intent intent3 = new Intent(Dashboard.this, UserAdminSelect.class);
-                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                Auth.signOut();
-                startActivity(intent3);
-                finish();
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(Dashboard.this);
+                builder.setTitle("")
+                        .setMessage("Are you sure you want to LOG OUT? ")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent3 = new Intent(Dashboard.this, UserAdminSelect.class);
+                                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Auth.signOut();
+                                startActivity(intent3);
+                                finish();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).show();
                 break;
             case R.id.nav_maps:
                 Intent intent2 = new Intent(Dashboard.this, MapsActivity.class);
