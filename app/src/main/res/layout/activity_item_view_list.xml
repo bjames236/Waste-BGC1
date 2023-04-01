@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ShopItems.ItemViewList">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/arrowback_myAwareness"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/imagegholder"
+                android:layout_width="411dp"
+                android:layout_height="228dp"
+                android:layout_marginTop="40dp"
+                android:src="@color/common_google_signin_btn_text_dark_disabled" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/titleview"
+                android:text="Candidate Name"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/headerview"
+                android:text="Candidate Course"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:padding="10dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
+

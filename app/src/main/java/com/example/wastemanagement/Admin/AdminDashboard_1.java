@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.wastemanagement.Call.CallActivityShop;
 import com.example.wastemanagement.MapsActivity;
 import com.example.wastemanagement.R;
+import com.example.wastemanagement.ShopItems.AddItems;
 import com.example.wastemanagement.UserAdminSelect;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,7 +44,7 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
 
     private TextView name;
 
-    private CardView TrashtoCash, Call, Awareness;
+    private CardView TrashtoCash, AddItem, Awareness;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -89,6 +90,15 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        AddItem = (CardView) findViewById(R.id.addItems);
+        AddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminDashboard_1.this, AddItems.class);
                 startActivity(intent);
             }
         });

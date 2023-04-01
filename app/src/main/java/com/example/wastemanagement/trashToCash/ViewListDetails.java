@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.wastemanagement.Admin.AdminShop;
 import com.example.wastemanagement.Notifications.NotificationMain;
 import com.example.wastemanagement.R;
+import com.example.wastemanagement.ShopItems.UserItemLists;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +32,7 @@ public class ViewListDetails extends AppCompatActivity {
     private String theuserID = "";
     private Button messageBTN, callBTN, notifyBTN;
 
-    private TextView monthlyRentTXT, houseAddressTXT, houseDescriptionTXT, listersNameTXT, listersPhoneNumberTXT, postedTXT;
+    private TextView itemView, monthlyRentTXT, houseAddressTXT, houseDescriptionTXT, listersNameTXT, listersPhoneNumberTXT, postedTXT;
 
     private FirebaseUser User;
     private FirebaseAuth Auth;
@@ -50,6 +51,16 @@ public class ViewListDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView itemView = (TextView) findViewById(R.id.viewItem);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewListDetails.this, UserItemLists.class);
+                startActivity(intent);
+            }
+        });
+
 
         monthlyRentTXT = (TextView) findViewById(R.id.RentEditText);
         houseAddressTXT = (TextView) findViewById(R.id.AddressEditText);

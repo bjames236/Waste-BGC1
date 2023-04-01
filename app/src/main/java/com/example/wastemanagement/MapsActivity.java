@@ -97,7 +97,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     // Add markers to the list
                     markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.409262, 120.587136)).title("Caranto")));
-                    markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.376447, 120.626406)).title("Maglaya")));
                     markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.409279, 120.587504)).title("Caniezo")));
                     markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.4099676, 120.6065965)).title("Example")));
                     markers.add(mMap.addMarker(new MarkerOptions().position(new LatLng(16.4041575, 120.6048461)).title("Example2")));
