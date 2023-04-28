@@ -44,7 +44,7 @@ public class ItemViewList extends AppCompatActivity {
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (ItemViewList.this, NewsList.class);
+                Intent intent = new Intent (ItemViewList.this, UserItemLists.class);
                 startActivity(intent);
             }
         });

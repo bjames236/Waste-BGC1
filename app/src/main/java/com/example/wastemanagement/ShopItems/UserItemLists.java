@@ -59,7 +59,7 @@ public class UserItemLists extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Shop Items");
         FirebaseRecyclerOptions<AwarenesssUsers> options = new FirebaseRecyclerOptions.Builder<AwarenesssUsers>()
-                .setQuery(databaseReference.orderByChild("title"), AwarenesssUsers.class).build();
+                .setQuery(databaseReference.orderByChild("userId"), AwarenesssUsers.class).build();
         FirebaseRecyclerAdapter<AwarenesssUsers, AwarenessViewHolder> adapter =
                 new FirebaseRecyclerAdapter<AwarenesssUsers, AwarenessViewHolder>(options) {
                     @Override

@@ -38,7 +38,6 @@ public class CallActivity extends AppCompatActivity {
     private FirebaseUser User;
     private FirebaseAuth Auth;
     private DatabaseReference databaseReference;
-
     Button startBTN;
     EditText userIdEditText;
     TextView heyUserTextView;
