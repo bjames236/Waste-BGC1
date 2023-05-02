@@ -69,19 +69,19 @@ public class UserItemLists extends AppCompatActivity {
                         houseViewHolder.description.setText(house.getDescription());
                         Glide.with(getApplicationContext()).load(house.getImage()).into(houseViewHolder.imageView);
 
-                        houseViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                       /* houseViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(UserItemLists.this, AwarenessViewList.class);
+                                Intent intent = new Intent(UserItemLists.this, ItemViewList.class);
                                 intent.putExtra("lid", house.getLid());
                                 startActivity(intent);
                             }
-                        });
+                        }); */
                     }
                     @NonNull
                     @Override
                     public AwarenessViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.awarenesslayout, parent, false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemslayout, parent, false);
                         AwarenessViewHolder holder = new AwarenessViewHolder(view);
                         return holder;
                     }

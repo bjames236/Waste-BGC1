@@ -12,7 +12,7 @@ import com.example.wastemanagement.R;
 
 public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView title, header, description, housePostedDateLayout, listersNameLayout, statusLayout;
+    public TextView title, header, description,price, housePostedDateLayout, listersNameLayout, statusLayout;
     public ImageView imageView;
     public itemClickListener listener;
 
@@ -22,6 +22,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         imageView = (ImageView) itemView.findViewById(R.id.awarenesscover);
         title = (TextView) itemView.findViewById(R.id.titleText);
         header = (TextView) itemView.findViewById(R.id.headertext);
+
 
     }
 

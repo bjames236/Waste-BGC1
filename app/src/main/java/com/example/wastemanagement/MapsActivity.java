@@ -87,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     // Create a circle overlay with the user's location as the center and a radius of 1000 meters
                     Circle circle = mMap.addCircle(new CircleOptions()
                             .center(new LatLng(location.getLatitude(), location.getLongitude()))
-                            .radius(1000.0)
+                            .radius(1500.0)
                             .strokeWidth(2f)
                             .strokeColor(Color.BLUE)
                             .fillColor(Color.argb(70, 0, 0, 255)));

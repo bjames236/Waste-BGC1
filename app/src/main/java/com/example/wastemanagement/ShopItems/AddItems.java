@@ -87,6 +87,7 @@ public class AddItems extends AppCompatActivity {
 
         titleTXT = (EditText) findViewById(R.id.addtitleAware);
         headerTXT = (EditText) findViewById(R.id.addHeaderAware);
+        headerTXT = (EditText) findViewById(R.id.addHeaderAware);
 
 
     }
@@ -97,6 +98,7 @@ public class AddItems extends AppCompatActivity {
             Toast.makeText(this, "Item image is needed...", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(title)) {
             titleTXT.setError("Required!");
+
         }else {
             storeToDatabase();
         }
