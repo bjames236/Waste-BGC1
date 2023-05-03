@@ -166,7 +166,7 @@ public class AddItems extends AppCompatActivity {
         User = Auth.getCurrentUser();
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Shop Items");
-        databaseReference.child(RandomKey).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child(title).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){

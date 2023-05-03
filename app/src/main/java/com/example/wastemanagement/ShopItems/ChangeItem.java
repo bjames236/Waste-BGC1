@@ -1,128 +1,145 @@
 package com.example.wastemanagement.ShopItems;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.wastemanagement.Dashboard;
-import com.example.wastemanagement.LoadingScreen;
-import com.example.wastemanagement.R;
-import com.example.wastemanagement.navigationMenuUI.Navigation_Change_Password;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthProvider;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.wastemanagement.Admin.AdminDashboard_1;
+import com.example.wastemanagement.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ChangeItem extends AppCompatActivity {
-    private EditText newItemPrice, newItemName;
-    private Button changeItem;
-
-    private FirebaseAuth Auth;
-    private FirebaseUser User;
-
-    private ProgressDialog loadBar;
+    FirebaseAuth Auth;
+    FirebaseUser User;
+    private ImageButton settingsArrowBack;
+    private CircleImageView profileImage;
+    private EditText address, itemName, itemPrice;
+    private Button updateBTN;
+    private Button changeProfilePic;
     private DatabaseReference databaseReference;
-
+    private Uri imageUri;
+    private String myUrl = "";
+    private StorageTask uploadTask;
+    private StorageReference storageProfilePrictureRef;
+    private String checker = "";
+    ActivityUpdateDataBinding
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_item);
-/*
+
+        storageProfilePrictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
+
         ImageButton arrowBack = (ImageButton) findViewById(R.id.arrowback_ChangePassword);
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Navigation_Change_Password.this, Dashboard.class);
+                Intent intent = new Intent(ChangeItem.this, AdminDashboard_1.class);
                 startActivity(intent);
             }
         });
 
-        loadBar = new ProgressDialog(this);
 
-        oldPasswordSecurity = (EditText) findViewById(R.id.secuityOldPassword);
-        newPasswordSecurity = (EditText) findViewById(R.id.secuityNewPassword);
 
-        Auth = FirebaseAuth.getInstance();
-        User = FirebaseAuth.getInstance().getCurrentUser();
-
-        changePass.setOnClickListener(new View.OnClickListener() {
+        updateBTN = (Button) findViewById(R.id.securityChangePassBTN);
+        updateBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String oldPass = oldPasswordSecurity.getText().toString();
-                String newPass = newPasswordSecurity.getText().toString();
-                String confirmNewPass = confirmNewPasswordSecurity.getText().toString();
-                if(oldPass.isEmpty() || newPass.isEmpty() || confirmNewPass.isEmpty()){
-                    Toast.makeText(Navigation_Change_Password.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
-                }else if (newPass.isEmpty()){
-                    newPasswordSecurity.setError("Enter your new password");
-                    Toast.makeText(Navigation_Change_Password.this, "Enter your new password", Toast.LENGTH_SHORT).show();
-                }else if (! confirmNewPass.equals(newPass)){
-                    confirmNewPasswordSecurity.setError("Password does not match");
-                    Toast.makeText(Navigation_Change_Password.this, "Password does not match", Toast.LENGTH_SHORT).show();
-                }else{
-                    changePassword(oldPass,newPass);
-                }
+
+                    updateWithNoProfilePic();
+
             }
         });
 
-    }
-    private void changePassword(String oldPass, String newPass) {
-        loadBar.setTitle("Changing Password");
-        loadBar.setMessage("Loading...");
-        loadBar.setCanceledOnTouchOutside(false);
-        loadBar.show();
-        AuthCredential credential = EmailAuthProvider.getCredential(User.getEmail(),oldPass);
-        User.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+        itemPrice = (EditText) findViewById(R.id.newItemPrice);
+        itemName = (EditText) findViewById(R.id.newItemPrice);
+
+        Auth = FirebaseAuth.getInstance();
+        User = Auth.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Shop Items");
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    User.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                HashMap Users = new HashMap();
-                                Users.put("password", newPass);
-                                databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-                                databaseReference.child(User.getUid()).updateChildren(Users).addOnCompleteListener(new OnCompleteListener() {
-                                    @Override
-                                    public void onComplete(@NonNull Task task) {
-                                        loadBar.dismiss();
-                                        Toast.makeText(Navigation_Change_Password.this, "Changed Password Successfully, Please Login Again!", Toast.LENGTH_SHORT).show();
-                                        Auth.signOut();
-                                        Intent intent = new Intent(Navigation_Change_Password.this, LoadingScreen.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                });
-                            }else{
-                                loadBar.dismiss();
-                                Toast.makeText(Navigation_Change_Password.this, "Password should be atleast 6 characters", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }else{
-                    loadBar.dismiss();
-                    Toast.makeText(Navigation_Change_Password.this, "Incorrect Old Password!", Toast.LENGTH_SHORT).show();
-                }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ItemUser item = snapshot.getValue(ItemUser.class);
+                assert item != null;
 
+                itemPrice.setText(item.getHeader());
+                itemName.setText(item.getTitle());
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ChangeItem.this, "Error, please report this bug!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+
+    private void updateWithNoProfilePic() {
+        String name = itemPrice.getText().toString();
+        String name1 = itemName.getText().toString();
+
+
+        if (TextUtils.isEmpty(name)) {
+            itemPrice.setError("Enter your new price");
+            Toast.makeText(ChangeItem.this, "Please enter price", Toast.LENGTH_SHORT).show();
+        }else if (TextUtils.isEmpty(name1)) {
+            itemPrice.setError("Enter the item name");
+            Toast.makeText(ChangeItem.this, "Please enter item name", Toast.LENGTH_SHORT).show();
+        }else {
+            updateData(name, name1);
+        }
+    }
+
+    private void updateData(String name, String name1) {
+        HashMap Users = new HashMap();
+        Users.put("header", name);
+        Auth = FirebaseAuth.getInstance();
+        User = Auth.getCurrentUser();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Shop Items");
+        databaseReference.child(User.getUid()).updateChildren(Users).addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                if (task.isSuccessful()){
+
+                    Toast.makeText(ChangeItem.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ChangeItem.this, AdminDashboard_1.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(ChangeItem.this, "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
-    }*/
-    }
+
+
 }

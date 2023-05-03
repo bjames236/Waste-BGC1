@@ -21,6 +21,7 @@ import com.example.wastemanagement.Call.CallActivityShop;
 import com.example.wastemanagement.MapsActivity;
 import com.example.wastemanagement.R;
 import com.example.wastemanagement.ShopItems.AddItems;
+import com.example.wastemanagement.ShopItems.ChangeItem;
 import com.example.wastemanagement.UserAdminSelect;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -89,7 +90,7 @@ public class AdminDashboard_1 extends AppCompatActivity implements NavigationVie
         Awareness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminDashboard_1.this, AdminProfile.class);
+                Intent intent = new Intent(AdminDashboard_1.this, ChangeItem.class);
                 startActivity(intent);
             }
         });
